@@ -1,0 +1,7 @@
+#customsubcategory=settings=Settings
+plugin.tgmracc{
+	# cat=TgM (R)accordion/settings; type=boolean; label=Use Default CSS;
+	defaultCSS = 1
+	# cat=TgM (R)accordion/settings; type=boolean; label=Use Default JS;
+	defaultJS = 1
+}

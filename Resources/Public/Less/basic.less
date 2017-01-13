@@ -1,0 +1,34 @@
+/**
+ * TgM (R)accordion BETA v1.0.0
+ * by Oliver Pfaff
+ *
+ */
+
+.tgm-racco{
+  transition: max-height 0.26s ease;
+  overflow: hidden;
+  //So we cant tab inside
+  a {
+    visibility: hidden;
+    //set visibility on hidden after the closing effect
+    transition:visibility 0s linear 0.26s;
+    // a tags with trigger class must be visible
+    &.tgm-racco-trigger{
+      visibility: visible;
+    }
+  }
+  //we wanna see the links and tab inside when the accordion is open
+  &.tgm-racco-open{
+    a{
+      visibility: visible;
+      transition: none;
+    }
+  }
+  .tgm-racco-trigger{
+    cursor: pointer;
+    //a tags inside the trigger should be visible always
+    a{
+      visibility: visible;
+    }
+  }
+}

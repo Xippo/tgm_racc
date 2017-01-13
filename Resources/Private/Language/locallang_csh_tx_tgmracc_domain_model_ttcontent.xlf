@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-09T16:04:43Z" product-name="tgm_racc">
+		<header/>
+		<body>
+			<trans-unit id="tgm_accordion.description">
+				<source>tgmAccordion</source>
+			</trans-unit>
+			<trans-unit id="tgm_accordion_open.description">
+				<source>tgmAccordionOpen</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

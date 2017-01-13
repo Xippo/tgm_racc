@@ -1,0 +1,26 @@
+/**
+ * TgM (R)accordion BETA v1.0.0
+ * by Oliver Pfaff
+ *
+ */
+.tgm-racco {
+  transition: max-height 0.26s ease;
+  overflow: hidden;
+}
+.tgm-racco a {
+  visibility: hidden;
+  transition: visibility 0s linear 0.26s;
+}
+.tgm-racco a.tgm-racco-trigger {
+  visibility: visible;
+}
+.tgm-racco.tgm-racco-open a {
+  visibility: visible;
+  transition: none;
+}
+.tgm-racco .tgm-racco-trigger {
+  cursor: pointer;
+}
+.tgm-racco .tgm-racco-trigger a {
+  visibility: visible;
+}

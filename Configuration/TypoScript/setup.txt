@@ -1,0 +1,24 @@
+page.includeJSFooter {
+	tgm_racc = EXT:tgm_racc/Resources/Public/Js/basic.js
+}
+
+[globalVar = LIT:1 = {$plugin.tgmracc.defaultCSS}]
+	page.includeCSS {
+		tgm_racc = EXT:tgm_racc/Resources/Public/CSS/basic.css
+	}
+[global]
+
+page.jsFooterInline.389 = COA
+page.jsFooterInline.389 {
+	wrap = r(function(){accordion.init({|})});
+	#Here we can set the default options
+	/*
+	10 = TEXT
+	10.value (
+		'test' : 'test'
+	)
+	*/
+}
+
+
+
