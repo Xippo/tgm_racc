@@ -3,7 +3,6 @@
  * by Oliver Pfaff, written in plain JS.
  *
  */
-//TODO respect wai-aria https://www.w3.org/TR/wai-aria-practices/#accordion
 (function (root, factory) {
     if ( typeof define === 'function' && define.amd ) {
         define(factory);
@@ -140,7 +139,12 @@
         if(ele.className.indexOf('tgm-racco-open') >= 0){
             //Close Element
             ele.style.maxHeight = ele.getAttribute('data-tgm-racco-minheight')+'px';
+
             ele.classList.remove('tgm-racco-open');
+            var trigger = ele.getElementsByClassName('tgm-racco-trigger');
+            if(typeof trigger[0] != 'undefined'){
+                trigger[0].setAttribute('aria-expanded','false');
+            }
             //remove from cookie
             removeUidFromCookie(ele.id,'tgm-racco-open');
             if(ele.getAttribute('data-tgm-racco-open') > 0){
@@ -148,6 +152,10 @@
             }
         }else{
             ele.classList.add('tgm-racco-open');
+            var trigger = ele.getElementsByClassName('tgm-racco-trigger');
+            if(typeof trigger[0] != 'undefined'){
+                trigger[0].setAttribute('aria-expanded','true');
+            }
             ele.style.maxHeight = ele.getAttribute('data-tgm-racco-maxheight')+'px';
             //add too cookie
             addUidTooCookie(ele.id,'tgm-racco-open');
@@ -211,7 +219,7 @@
         //get all elements with the right data attribute
         var dataAccordionElements = document.querySelectorAll('[data-tgm-racco="1"]');
         forEach(dataAccordionElements,function(ele){
-            //Check if the element has already the right class. If it has not we add it
+            //Check if the element has already the right class. If it has not, we add it
             if(ele.className.indexOf(settings.class) < 0){
                 var style = window.getComputedStyle(ele);
                 ele.setAttribute('data-tgm-racco-maxheight', ele.scrollHeight + parseInt(style.marginTop) + parseInt(style.marginBottom));
