@@ -261,20 +261,32 @@
                     //check if the element was closed in this session
                     if(cookieInitOpenClosed.indexOf(ele.id) < 0){
                         ele.classList.add('tgm-racco-open');
+                        if(typeof eleTrigger[0] != 'undefined'){
+                            eleTrigger[0].setAttribute('aria-expanded','true');
+                        }
                         ele.style.maxHeight = ele.getAttribute('data-tgm-racco-maxheight')+'px';
                     }
                 }else if(cookieOpenElements.indexOf(ele.id) >= 0){
                     ele.classList.add('tgm-racco-open');
+                    if(typeof eleTrigger[0] != 'undefined'){
+                        eleTrigger[0].setAttribute('aria-expanded','true');
+                    }
                     ele.style.maxHeight = ele.getAttribute('data-tgm-racco-maxheight')+'px';
                 }
             }else if(ele.getAttribute('data-tgm-racco-open') > 0){
                 ele.classList.add('tgm-racco-open');
+                if(typeof eleTrigger[0] != 'undefined'){
+                    eleTrigger[0].setAttribute('aria-expanded','true');
+                }
                 ele.style.maxHeight = ele.getAttribute('data-tgm-racco-maxheight')+'px';
             }
 
             //check if element is closed
             if(ele.className.indexOf('tgm-racco-open') < 0){
                 //Close Element
+                if(typeof eleTrigger[0] != 'undefined'){
+                    eleTrigger[0].setAttribute('aria-expanded','false');
+                }
                 ele.style.maxHeight = ele.getAttribute('data-tgm-racco-minheight')+'px';
             }
         });
