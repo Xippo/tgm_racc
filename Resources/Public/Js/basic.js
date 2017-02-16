@@ -256,6 +256,11 @@
                 cookieInitOpenClosed = readCookie('tgm-racco-cinitopen');
                 cookieOpenElements = readCookie('tgm-racco-open');
 
+                //Warning when the element has no CSS ID
+                if(ele.id === ''){
+                    console.warn('TGM Racc Extension (WARNING) : The html element where you initialize the accordion (the element with the data tags ;) ) need to have a unique CSS ID. Without ID the extension can\'t store the accordion status ');
+                }
+
                 //Check if the element should be open #racco-open check
                 if(ele.getAttribute('data-tgm-racco-open') > 0){
                     //check if the element was closed in this session
@@ -266,7 +271,7 @@
                         }
                         ele.style.maxHeight = ele.getAttribute('data-tgm-racco-maxheight')+'px';
                     }
-                }else if(cookieOpenElements.indexOf(ele.id) >= 0){
+                }else if(cookieOpenElements.indexOf(ele.id) >= 0 && ele.id !== ''){
                     ele.classList.add('tgm-racco-open');
                     if(typeof eleTrigger[0] != 'undefined'){
                         eleTrigger[0].setAttribute('aria-expanded','true');
