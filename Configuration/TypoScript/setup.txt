@@ -11,6 +11,7 @@ page.includeJSFooter {
 page.jsFooterInline.389 = COA
 page.jsFooterInline.389 {
 	wrap = r(function(){accordion.init({|})});
+	//wrap = window.onload = function(){accordion.init({|})};
 	#Here we can set the default options
 	/*
 	10 = TEXT

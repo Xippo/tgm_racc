@@ -221,9 +221,9 @@
         forEach(dataAccordionElements,function(ele){
             //Check if the element has already the right class. If it has not, we add it
             if(ele.className.indexOf(settings.class) < 0){
-                var style = window.getComputedStyle(ele);
-                ele.setAttribute('data-tgm-racco-maxheight', ele.scrollHeight + parseInt(style.marginTop) + parseInt(style.marginBottom));
+                //With add the class first because overflow hidden change the float stuff (we had some trouble with the high calculation in combination with margin )
                 ele.classList.add(settings.class);
+                ele.setAttribute('data-tgm-racco-maxheight', ele.offsetHeight);
             }else {
                 //@TODO remove the class and set the right maxHeight. Than ReAdd the class
             }
@@ -306,7 +306,6 @@
         var settings = extend(defaults, options);
         //init
         setNeededStuff(settings);
-
     };
 
     //
