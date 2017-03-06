@@ -98,7 +98,8 @@
     };
 
     var initTriggerEvent = function(trigger,ele,settings){
-        trigger.classList.add('tgm-racco-trigger'); // So we can do some css stuff when the element has the open class
+        // So we can do some css stuff when the element has the open class
+        trigger.classList.add('tgm-racco-trigger');
 
         //If we have a head we take the head height. The Trigger is supposed to be inside the head
         if(ele.querySelectorAll('[data-tgm-racco-head="1"]').length >= 1){
@@ -246,9 +247,11 @@
                 eleTrigger = ele.querySelectorAll('h1, h2, h3, h4, h5, h6');
             }
 
-            if(eleTrigger){
+            if(eleTrigger.length > 0){
                 //here we set also the min-height for the closed status
                 initTriggerEvent(eleTrigger[0],ele,settings);
+            }else{
+                console.warn('tgm_racc: The element '+ele.getAttribute('id')+' dosen\'t have a right heading to be used as trigger and the trigger data tag is not set')
             }
 
             if(!newCookie){
