@@ -222,9 +222,14 @@
         forEach(dataAccordionElements,function(ele){
             //Check if the element has already the right class. If it has not, we add it
             if(ele.className.indexOf(settings.class) < 0){
-                //With add the class first because overflow hidden change the float stuff (we had some trouble with the high calculation in combination with margin )
+                //We take the high before we add the class and after. The highest will be set. (We had some trouble with floating and overflow hidden which come in to play with the added class)
+                var height1 =  ele.offsetHeight;
                 ele.classList.add(settings.class);
-                ele.setAttribute('data-tgm-racco-maxheight', ele.offsetHeight);
+                var height2 = ele.offsetHeight;
+                if(height2 > height1){
+                    height1 = height2;
+                }
+                ele.setAttribute('data-tgm-racco-maxheight', height1);
             }else {
                 //@TODO remove the class and set the right maxHeight. Than ReAdd the class
             }
