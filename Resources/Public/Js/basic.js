@@ -220,20 +220,7 @@
         //get all elements with the right data attribute
         var dataAccordionElements = document.querySelectorAll('[data-tgm-racco="1"]');
         forEach(dataAccordionElements,function(ele){
-            //Check if the element has already the right class. If it has not, we add it
-            if(ele.className.indexOf(settings.class) < 0){
-                //We take the high before we add the class and after. The highest will be set. (We had some trouble with floating and overflow hidden which come in to play with the added class)
-                var height1 =  ele.offsetHeight;
-                ele.classList.add(settings.class);
-                var height2 = ele.offsetHeight;
-                if(height2 > height1){
-                    height1 = height2;
-                }
-                ele.setAttribute('data-tgm-racco-maxheight', height1);
-            }else {
-                //@TODO remove the class and set the right maxHeight. Than ReAdd the class
-            }
-
+           
             //Check if the accordion element has trigger
             if(settings.trigger){
                 var trigger = 1;
@@ -257,6 +244,20 @@
                 initTriggerEvent(eleTrigger[0],ele,settings);
             }else{
                 console.warn('tgm_racc: The element '+ele.getAttribute('id')+' dosen\'t have a right heading to be used as trigger and the trigger data tag is not set')
+            }
+            
+            //Check if the element has already the right class. If it has not, we add it
+            if(ele.className.indexOf(settings.class) < 0){
+                //We take the high before we add the class and after. The highest will be set. (We had some trouble with floating and overflow hidden which come in to play with the added class)
+                var height1 =  ele.offsetHeight;
+                ele.classList.add(settings.class);
+                var height2 = ele.offsetHeight;
+                if(height2 > height1){
+                    height1 = height2;
+                }
+                ele.setAttribute('data-tgm-racco-maxheight', height1);
+            }else {
+                //@TODO remove the class and set the right maxHeight. Than ReAdd the class
             }
 
             if(!newCookie){
